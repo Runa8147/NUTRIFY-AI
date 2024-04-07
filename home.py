@@ -1,5 +1,7 @@
 import streamlit as st
+st.title("Nutrify AI")
+st.image("logo.png",width=300)
+st.write("Home", icon="🏠")
+st.write("Chat", icon="🤖")
+st.write("About", icon="⚪")
 
-st.page_link("chat.py", label="Home", icon="🤖")
-st.page_link("about.py", label="about", icon="⚪")
-st.page_link("https://404foundxnutrifyai.blogspot.com/", label="Blog", icon="🅱️")  
