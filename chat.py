@@ -50,20 +50,20 @@ if user_prompt:
   gemini_response = st.session_state.chat_session.send_message(f"Based on a healthy diet, {user_prompt}")
 
   # Alternative approach: Analyze keywords in response (not perfect)
-  if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "health", "diet", "exercise"]):
-    st.chat_message("assistant").markdown(gemini_response.text)
-    like, unlike, save = st.columns(3)  # Add a new column for save button
-    with like:
-      if st.button(" Like"):
-        st.success("Thanks for the feedback!")
-    with unlike:
-      if st.button(" Unlike"):
-        st.warning("I apologize if the information wasn't helpful. I am still under development and learning to focus on providing the best nutritional and health guidance.")
-        sleep(8)  # Optional: Display warning for a duration
-    with save:
-      if st.button(" Save Response"):
-        # Download response logic
-        response_text = gemini_response.text
-        st.download_button(label="Download Response", data=response_text.encode('utf-8'), file_name="nutrify_ai_response.txt", mime="text/plain")
+ if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "health", "diet", "exercise"]):
+        st.chat_message("assistant").markdown(gemini_response.text)
+        like, unlike = st.columns(2)  # Two columns for feedback
+
+        with like:
+            if st.button(" Like"):
+                st.success("Thanks for the feedback!")
+        with unlike:
+            if st.button(" Unlike"):
+                st.warning("I apologize if the information wasn't helpful. I am still under development and learning to focus on providing the best nutritional and health guidance.")
+                sleep(8)  # Optional: Display warning for a duration
+
+        text_contents = gemini_response.text
+        st.download_button('Download some text', text_contents)
+                              
   else:
-    st.chat_message("assistant").markdown("It seems your question might be outside my area of expertise. Please rephrase focusing on nutrition or health.")
+         st.chat_message("assistant").markdown("It seems your question might be outside my area of expertise. Please rephrase focusing on nutrition or health.")
