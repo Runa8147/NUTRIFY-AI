@@ -65,5 +65,5 @@ if user_prompt:
         text_contents = gemini_response.text
         st.download_button('Download some text', text_contents)
                               
-   else:
+    else:
          st.chat_message("assistant").markdown("It seems your question might be outside my area of expertise. Please rephrase focusing on nutrition or health.")
