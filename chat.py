@@ -50,7 +50,7 @@ if user_prompt:
   gemini_response = st.session_state.chat_session.send_message(f"Based on a healthy diet, {user_prompt}")
 
   # Alternative approach: Analyze keywords in response (not perfect)
-if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "health", "diet", "exercise"]):
+    if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "health", "diet", "exercise"]):
         st.chat_message("assistant").markdown(gemini_response.text)
         like, unlike = st.columns(2)  # Two columns for feedback
 
@@ -65,5 +65,5 @@ if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "hea
         text_contents = gemini_response.text
         st.download_button('Download some text', text_contents)
                               
-  else:
+   else:
          st.chat_message("assistant").markdown("It seems your question might be outside my area of expertise. Please rephrase focusing on nutrition or health.")
