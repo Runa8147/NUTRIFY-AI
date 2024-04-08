@@ -1,21 +1,21 @@
 import os
+
 import streamlit as st
 from time import sleep
-from dotenv import load_dotenv
+
+
 import google.generativeai as gen_ai
-import io  # For creating in-memory file objects
-from reportlab.pdfgen import canvas  # For creating PDF elements
 # Load environment variables
-load_dotenv()
+
 
 # Configure Streamlit page settings
 st.set_page_config(
-    page_title="Gemini-Pro Chatbot by HJP7",
+    page_title="Nutrify chatbot powered by gemini pro",
     page_icon=":brain:", 
     layout="centered",  # Page layout option
 )
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = "AIzaSyAZ35ZoRYAcU-bNLBTHQvEJjSnD9HP8CbY"
 # Set up Google Gemini-Pro AI model
 gen_ai.configure(api_key=GOOGLE_API_KEY)
 model = gen_ai.GenerativeModel('gemini-1.0-pro')
@@ -49,7 +49,8 @@ if user_prompt:
   # Send prompt with user query
   gemini_response = st.session_state.chat_session.send_message(f"Based on a healthy diet, {user_prompt}")
 
-  if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "health", "diet", "exercise"]):
+  # Alternative approach: Analyze keywords in response (not perfect)
+ if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "health", "diet", "exercise"]):
         st.chat_message("assistant").markdown(gemini_response.text)
         like, unlike = st.columns(2)  # Two columns for feedback
 
