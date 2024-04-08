@@ -35,9 +35,9 @@ feature_list = [
       "Accessible and User-Friendly: Nutrify is designed to be easy to use for everyone, regardless of technical expertise."
   ]
   
-st.subheader("The Team Behind Nutrify (Optional)")
+st.subheader("The Team Behind Nutrify ")
 st.write("""
-  Nutrify is brought to you by a passionate team of developers, nutritionists, and AI enthusiasts dedicated to creating 
+  Nutrify is brought to you by a passionate team of developers and AI enthusiasts dedicated to creating 
   innovative tools that empower a healthier future. The team meambers behind this Ai chatbot includes Arun John M S,Anjana Vargheses chacko,Anjana Rajan and Anjana K R
   """)
 
