@@ -10,7 +10,7 @@ import google.generativeai as gen_ai
 
 # Configure Streamlit page settings
 st.set_page_config(
-    page_title="Gemini-Pro Chatbot by HJP7",
+    page_title="Nutrify chatbot powered by gemini pro",
     page_icon=":brain:", 
     layout="centered",  # Page layout option
 )
