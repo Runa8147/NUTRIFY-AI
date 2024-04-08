@@ -1,16 +1,12 @@
-import os
-
 import streamlit as st
 from time import sleep
-
-
 import google.generativeai as gen_ai
 # Load environment variables
 
 
 # Configure Streamlit page settings
 st.set_page_config(
-    page_title="Nutrify chatbot powered by gemini pro",
+    page_title="Nutrify AI chatbot powered by Gemini pro",
     page_icon=":brain:", 
     layout="centered",  # Page layout option
 )
@@ -50,10 +46,9 @@ if user_prompt:
   gemini_response = st.session_state.chat_session.send_message(f"Based on a healthy diet, {user_prompt}")
 
   # Alternative approach: Analyze keywords in response (not perfect)
- if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "health", "diet", "exercise"]):
+    if any(keyword in gemini_response.text.lower() for keyword in ["nutrition", "health", "diet", "exercise"]):
         st.chat_message("assistant").markdown(gemini_response.text)
         like, unlike = st.columns(2)  # Two columns for feedback
-
         with like:
             if st.button(" Like"):
                 st.success("Thanks for the feedback!")
@@ -61,9 +56,8 @@ if user_prompt:
             if st.button(" Unlike"):
                 st.warning("I apologize if the information wasn't helpful. I am still under development and learning to focus on providing the best nutritional and health guidance.")
                 sleep(8)  # Optional: Display warning for a duration
-
         text_contents = gemini_response.text
         st.download_button('Download some text', text_contents)
                               
-  else:
+    else:
          st.chat_message("assistant").markdown("It seems your question might be outside my area of expertise. Please rephrase focusing on nutrition or health.")
