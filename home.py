@@ -10,8 +10,8 @@ st.write("""
   """)
 
 st.page_link("homex.py", label="Home", icon="🏠")
-st.page_link("pages/chat.py", label="Page 1", icon="1️⃣")
-st.page_link("pages/about.py", label="Page 2", icon="2️⃣")
-st.page_link("https://404foundxnutrifyai.blogspot.com/", label="Google", icon="🌎")
+st.page_link("chat.py", label="Chat", icon="1️⃣")
+st.page_link("about.py", label="About", icon="2️⃣")
+st.page_link("https://404foundxnutrifyai.blogspot.com/", label="Blog", icon="🌎")
 
 
