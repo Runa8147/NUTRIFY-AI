@@ -129,7 +129,7 @@ convo = model.start_chat(history=[
   },
   ])
 st.title("Nutrify")
-st.header("Your persoanl ai assistant for productivity")
+st.header("Your persoanl Ai assistant for Healthier You")
 
 
 user_input = st.chat_input("You: ", key="user_input")   
