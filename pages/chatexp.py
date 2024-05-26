@@ -132,8 +132,8 @@ st.title("Nutrify")
 st.header("Your persoanl Ai assistant for Healthier You")
 
 
-user_input = st.chat_input("You: ", key="user_input")   
+user_input = st.chat_input("Ask ✨Nutrify AI about your health or nutrition...")   
 if user_input:
   convo.send_message(user_input)
-  st.write("You:", user_input)
-  st.write("Nutrify:", convo.last.text)
+  st.write("🤨", user_input)
+  st.write("🤖", convo.last.text)
